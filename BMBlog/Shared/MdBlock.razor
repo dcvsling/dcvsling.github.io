@@ -1,0 +1,21 @@
+﻿@Content
+@code {
+    [Inject]
+    private NavigationManager Navigation { get; set; }
+    [Inject]
+    private IContentParser Parser { get; set; }
+    [Inject]
+    private ILogger<MdBlock> Logger { get; set; }
+    public RenderFragment Content { get; set; }
+
+    protected override void OnInitialized() {
+        Parser.Subscribe(OnContentChange);
+    }
+
+    private void OnContentChange(RenderFragment content)
+    {
+        Content = content;
+        this.StateHasChanged();
+        Console.WriteLine("content refreshed");
+    }
+}

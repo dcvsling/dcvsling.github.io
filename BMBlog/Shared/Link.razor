@@ -1,0 +1,13 @@
+﻿<span class="nav-link" @onclick="Click">
+    <span class="oi oi-plus" style="@($"padding-left: {SideNav.Level * 1}em")"></span> <span style="color: white">@SideNav.Display</span>
+</span>
+
+@code {
+    [Parameter]
+    public SideNavItem SideNav { get; set; }
+    [Inject]
+    public IContentParser Parser { get; set; }
+    public void Click() {
+        Parser.Parse(SideNav);
+    }
+}

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AsNetCore.App" />
+    <PackageReference Include="Microsoft.Toolkit.Parsers" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

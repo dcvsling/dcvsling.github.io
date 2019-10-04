@@ -1,0 +1,30 @@
+﻿@*@layout MainLayout
+@inject NavigationManager NavigationManager
+@inject ILogger<Index> Logger
+@inject UrlHelper helper
+
+
+
+@code {
+    [Parameter]
+    public string Path => helper. NavigationManager.Uri;
+    public string UrlPath => Path.Length != 0 ? Path : "README";
+
+
+    protected override void OnInitialized()
+    {
+        NavigationManager.LocationChanged += HandleLocationChanged;
+    }
+
+    private void HandleLocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        Logger.LogWarning(e.Location + "start");
+        Path = e.Location;
+        Logger.LogWarning(e.Location + "end");
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= HandleLocationChanged;
+    }
+}*@
