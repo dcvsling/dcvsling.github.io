@@ -1,0 +1,15 @@
+{
+  "name": "Blazor Markdown Reader",
+  "short_name": "BM Reader",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3a0647",
+  "theme_color": "#052767"
+}
