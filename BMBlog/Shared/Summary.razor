@@ -7,13 +7,14 @@
     </button>
 </div>
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-        <span class="oi oi-home" aria-hidden="true"></span> Home
-    </NavLink>
+    <ul class="nav flex-column">
     @foreach (var link in links)
     {
-        <Link SideNav="link"></Link>
+        <li class="nav-item px-3">
+            <Link SideNav="link"></Link>
+        </li>
     }
+    </ul>
 </div>
 @code {
     public List<SideNavItem> links { get; set; } = new List<SideNavItem>();

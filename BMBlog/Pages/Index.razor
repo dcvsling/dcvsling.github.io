@@ -1,30 +1,14 @@
-﻿@*@layout MainLayout
-@inject NavigationManager NavigationManager
-@inject ILogger<Index> Logger
-@inject UrlHelper helper
+﻿@layout MainLayout
 
-
+<MdBlock></MdBlock>
 
 @code {
-    [Parameter]
-    public string Path => helper. NavigationManager.Uri;
-    public string UrlPath => Path.Length != 0 ? Path : "README";
 
-
-    protected override void OnInitialized()
-    {
-        NavigationManager.LocationChanged += HandleLocationChanged;
+    [Inject]
+    private NavigationManager Navigation { get; set; }
+    [Inject]
+    private IContentParser Parser { get; set; }
+    protected override void OnAfterRender(bool firstRender) {
+        Parser.Parse(new SideNavItem { Link = URL.Parse(Navigation.Uri).Path });
     }
-
-    private void HandleLocationChanged(object sender, LocationChangedEventArgs e)
-    {
-        Logger.LogWarning(e.Location + "start");
-        Path = e.Location;
-        Logger.LogWarning(e.Location + "end");
-    }
-
-    public void Dispose()
-    {
-        NavigationManager.LocationChanged -= HandleLocationChanged;
-    }
-}*@
+}

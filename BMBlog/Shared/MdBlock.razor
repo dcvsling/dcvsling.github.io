@@ -1,8 +1,6 @@
 ﻿@Content
 @code {
     [Inject]
-    private NavigationManager Navigation { get; set; }
-    [Inject]
     private IContentParser Parser { get; set; }
     [Inject]
     private ILogger<MdBlock> Logger { get; set; }
@@ -16,6 +14,5 @@
     {
         Content = content;
         this.StateHasChanged();
-        Console.WriteLine("content refreshed");
     }
 }

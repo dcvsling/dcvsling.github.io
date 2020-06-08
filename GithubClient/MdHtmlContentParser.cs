@@ -31,7 +31,7 @@ namespace BMBlog.Services
 
         public async Task Parse(SideNavItem nav)
         {
-            var html = Markdown.ToHtml(await _client.GetRaw($"/{nav.Link}.md"), Pipeline);
+            var html = Markdown.ToHtml(await _client.GetRaw($"{(nav.Link.StartsWith("/") ? string.Empty : "/")}{nav.Link}.md"), Pipeline);
             _observers(builder => builder.AddMarkupContent(0, html));
             //_observers(docs.Blocks.ToList()
             //    .Select((x, i) => (RenderFragment)(builder => builder.AddMarkupContent(i, x.ToString())))

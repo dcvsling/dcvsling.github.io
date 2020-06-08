@@ -1,10 +1,15 @@
 @inherits LayoutComponentBase
-<div>
-    <div style="left: 0" class="sidebar">
-        <Summary></Summary>
+
+<div class="sidebar">
+    <Summary></Summary>
+</div>
+
+<div class="main">
+    <div class="top-row px-4 auth" style="display: none">
+        <LoginDisplay />
     </div>
 
-    <div style="margin-left: 10%" class="main">
-        <MdBlock></MdBlock>
+    <div class="content px-4">
+        @Body
     </div>
 </div>
