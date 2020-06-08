@@ -21,13 +21,13 @@ autocrlf=false
 # *.bat             text eol=crlf
 # *.cmd             text eol=crlf
 # *.coffee          text
-# *.css             text
-# *.htm             text diff=html
-# *.html            text diff=html
+*.css             text
+*.htm             text diff=html
+*.html            text diff=html
 # *.inc             text
 # *.ini             text
-# *.js              text
-# *.json            text
+*.js              text
+*.json            text
 # *.jsx             text
 # *.less            text
 # *.ls              text
@@ -103,11 +103,11 @@ autocrlf=false
 # *.config          text
 # .editorconfig     text
 # .env              text
-# .gitattributes    text
-# .gitconfig        text
+.gitattributes    text
+.gitconfig        text
 # .htaccess         text
-# *.lock            text -diff
-# package-lock.json text -diff
+*.lock            text -diff
+package-lock.json text -diff
 # *.toml            text
 # *.yaml            text
 # *.yml             text
@@ -197,4 +197,4 @@ autocrlf=false
 # *.*rc             text
 
 # # Ignore files (like .npmignore or .gitignore)
-# *.*ignore         text
+*.*ignore         text
