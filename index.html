@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>BMBlog</title>
     <base href="/" />
-    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" integrity="" />
-    <link href="/css/app.css" rel="stylesheet" integrity="" />
-    <script type="text/javascript" src="/js/rewriteUrl.js" integrity="" ></script>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+    <script type="text/javascript" src="/js/rewriteUrl.js"></script>
     <script type="text/javascript">
         (function (l) {
             if (l.search) {
@@ -31,8 +31,26 @@
 
 <body>
     <app>Loading...</app>
-    <script src="/_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js" integrity="" ></script>
-    <script src="/_framework/blazor.webassembly.js" integrity="" ></script>
+    <script src="/_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"></script>
+    <script src="/_framework/blazor.webassembly.js" autostart="false"></script>
+    <script>
+        Blazor.start({
+            loadBootResource: function (_, _, defaultUri, integrity) {
+                return fetch(defaultUri, {
+                    cache: 'no-cache',
+                    integrity: integrity,
+                    headers: {
+                        "User-Agent": "Blazor Github Page",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Headers": ["Authorization", "Content-Type", "If-Match", "If-Modified-Since", "If-None-Match", "If-Unmodified-Since", "X-GitHub-OTP", "X-Requested-With"],
+                        "Access-Control-Allow-Methods": ["GET", "POST", "PATCH", "PUT", "DELETE"],
+                        "Access-Control-Expose-Headers": ["ETag", "Link", "X-GitHub-OTP", "X-RateLimit-Limit", "X-RateLimit-Remaining", "X-RateLimit-Reset", "X-OAuth-Scopes", "X-Accepted-OAuth-Scopes", "X-Poll-Interval"],
+                        "Access-Control-Max-Age": 86400
+                    }
+                });
+            }
+        });
+    </script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 </body>
 
