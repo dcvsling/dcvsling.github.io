@@ -93,7 +93,7 @@
       "url": "fonts\/materialdesignicons-webfont.woff2"
     },
     {
-      "hash": "sha256-aJuu+AjP5Nkr8\/YPRqicd1dvLocEh4TqLUQiNkP3e3c=",
+      "hash": "sha256-RPeTsTCdGPMMqwy1Nu8En+1nCeBHehK3gqp0bLmXWkQ=",
       "url": "index.html"
     },
     {
