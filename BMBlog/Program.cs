@@ -5,10 +5,6 @@ using BMBlog.Services;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using System;
-using System.Linq;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Routing;
-using Microsoft.Extensions.Configuration;
 
 namespace BMBlog
 {

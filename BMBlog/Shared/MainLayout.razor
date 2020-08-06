@@ -1,15 +1,40 @@
 @inherits LayoutComponentBase
 
-<div class="sidebar">
-    <Summary></Summary>
-</div>
+<MatAppBarContainer>
+    <MatAppBar Fixed="true">
+        <MatAppBarRow>
+            <MatAppBarSection>
+                <MatIconButton Icon="menu" OnClick="@((e) => ButtonClicked())"></MatIconButton>
+                <MatAppBarTitle>Blazor Markdown Blog</MatAppBarTitle>
+            </MatAppBarSection>
+            <MatAppBarSection Align="@MatAppBarSectionAlign.End">
+                
+            </MatAppBarSection>
+        </MatAppBarRow>
+    </MatAppBar>
+ 
+    <MatAppBarContent>
+        <MatDrawerContainer Style="width: 100vw; height: 100vh;">
+            <MatDrawer @bind-Opened="@Opened" Mode="@MatDrawerMode.Modal">
+                <Summary></Summary>
+            </MatDrawer>
+            <MatDrawerContent>
+                @Body
+            </MatDrawerContent>
+        </MatDrawerContainer>
+    </MatAppBarContent>
+</MatAppBarContainer>
 
-<div class="main">
-    <div class="top-row px-4 auth" style="display: none">
-        <LoginDisplay />
-    </div>
 
-    <div class="content px-4">
-        @Body
-    </div>
-</div>
+ 
+ 
+@code
+{
+    bool Opened = true;
+ 
+    void ButtonClicked()
+    {
+        Opened = !Opened;
+    }
+ 
+}

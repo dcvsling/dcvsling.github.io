@@ -1,9 +1,18 @@
-﻿@Content
+﻿@layout MainLayout
+
+@Content
+
 @code {
+    [Inject]
+    private NavigationManager Navigation { get; set; }
+    protected override void OnAfterRender(bool firstRender) {
+        if(!firstRender) return;
+        Parser.Parse(new SideNavItem { Link = URL.Parse(Navigation.Uri).Path });
+    }
     [Inject]
     private IContentParser Parser { get; set; }
     [Inject]
-    private ILogger<MdBlock> Logger { get; set; }
+    private ILogger<Home> Logger { get; set; }
     public RenderFragment Content { get; set; }
 
     protected override void OnInitialized() {
