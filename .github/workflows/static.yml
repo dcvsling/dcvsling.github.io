@@ -22,22 +22,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  environment:
-    name: github-pages
-    url: ${{ steps.deployment.outputs.page_url }}
-  runs-on: ubuntu-latest
+  ci:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x, 18.x]
-
     steps:
       - uses: actions/checkout@v2
-
+  
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
+  
       - name: Cache node modules
         id: cache-nodemodules
         uses: actions/cache@v2
