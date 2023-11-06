@@ -10,9 +10,7 @@ import { Subscription, tap } from 'rxjs';
   standalone: true,
   selector: 'login',
   template: `
-  <form *ngIf="!isAuthenticated else profiles" [action]="accessor.authUrl" method="POST">
-    <input type="submit" value="Login" />
-  </form>
+  <a *ngIf="!isAuthenticated else profiles" [href]="accessor.authUrl">Login</a>
   <ng-template #profiles>
     <p>{{ user()?.name }}</p>
   </ng-template>
