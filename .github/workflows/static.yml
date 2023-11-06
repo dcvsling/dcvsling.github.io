@@ -57,7 +57,7 @@ jobs:
           npm ci
       - name: Build
         run: |
-          npm run build -- --production
+          npm run ng -- build --configuration production
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
