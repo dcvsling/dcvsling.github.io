@@ -1,7 +1,6 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Shell } from './app/shell';
+import { bootstrapApplication } from '@angular/platform-browser';
+import providers from './providers';
+import 'zone.js';
 
-import { AppModule } from './app/app.module';
-
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(Shell, providers).catch(console.error);

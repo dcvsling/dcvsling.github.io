@@ -4,7 +4,6 @@
   "cli": {
     "packageManager": "npm"
   },
-  "newProjectRoot": "projects",
   "projects": {
     "blog.client": {
       "projectType": "application",
@@ -16,7 +15,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/blog.client",
+            "outputPath": "dist/blog.client/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -24,13 +23,17 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/404.html",
               "src/favicon.ico",
-              "src/assets"
+              "src/assets/icon-144x144.png",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -81,19 +84,54 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
-              "zone.js",
-              "zone.js/testing"
+              "zone.js"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css"
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/blog.client/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "configurations": {
+            "production": {
+              "browserTarget": "blog.client:build:production",
+              "serverTarget": "blog.client:server:production"
+            },
+            "development": {
+              "browserTarget": "blog.client:build:development",
+              "serverTarget": "blog.client:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

@@ -1,0 +1,4 @@
+GET https://github.com/login/oauth/authorize?client_id=50796b8d0c354aa09b0f&state=abcdefghj
+
+POST https://localhost:7105/auth/github
+
