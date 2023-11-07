@@ -25,7 +25,7 @@
         var [p, q] = l.search.slice(1).split('&');
         var path = p.split('=')[1];
         var qs = q.split('~and~').join('&');
-        window.history.replaceState(null, null, `/${path}?${qs}`);
+        window.history.replaceState(null, null, `/${location.hostname}${path}?${qs}`);
       }
     }(window.location))
   </script>
