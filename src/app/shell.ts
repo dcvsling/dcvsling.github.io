@@ -44,7 +44,8 @@ import { Login, Topic } from '../layout';
   `]
 })
 export class Shell {
-  constructor(public router: Router){}
+  constructor(public router: Router) { }
+  ngOnInit(): void {}
 }
 
 
